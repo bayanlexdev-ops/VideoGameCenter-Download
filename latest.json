@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "url": "https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup.msi",
-  "sha256": "B8F5690A157919AA212EA29D168FE3DBD59FA7287E000A055E4F0760AE47FCC1",
+  "sha256": "82574BC205F8554A287FD5660889BD2F9D0A24264EC58D3E5BE453148DEE8A8B",
   "mandatory": false,
-  "notes": "الإصدار 1.0.0 (تحديث أمني): حماية تصدير CSV من حقن الصيغ، ورفض تحويلات التحديث من HTTPS إلى HTTP، مع تحسينات الاختبارات والتثبيت."
+  "notes": "الإصدار 1.0.1: حماية تصدير CSV من حقن الصيغ، ورفض تحويلات التحديث من HTTPS إلى HTTP، مع تحسينات الاختبارات والتثبيت."
 }
