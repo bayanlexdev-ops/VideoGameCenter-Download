@@ -259,6 +259,7 @@
     .support a.secondary { background: transparent; border-color: var(--line); color: var(--muted); font-weight: 600; }
     footer { text-align: center; color: #6f8090; font-size: 12px; margin-top: 28px; }
     footer strong { color: #a9b8c6; }
+    .alt-link { color: #9fc2e0; }
     .legacy {
       margin-top: 18px;
       padding: 22px 20px;
@@ -299,23 +300,28 @@
     </header>
 
     <section class="hero">
-      <div class="badge">✅ أحدث إصدار <span id="version">1.2.0</span> — Windows 10/11 (64-bit)</div>
+      <div class="badge">✅ أحدث إصدار <span id="version">1.2.0</span> — Windows 7 SP1 – 11 (32/64 بت)</div>
       <h2>حمّل البرنامج وابدأ التشغيل</h2>
       <p class="lead">
-        حزمة تثبيت كاملة تعمل بدون تثبيت .NET، وتحافظ على بياناتك في مجلد مستقل
-        لا يتأثر بالتحديث أو إلغاء التثبيت.
+        ملف تثبيت واحد (<span dir="ltr">.exe</span>) يختار النسخة المناسبة لنظامك تلقائياً،
+        ويحافظ على بياناتك في مجلد مستقل لا يتأثر بالتحديث أو إلغاء التثبيت.
       </p>
 
       <a class="download" id="downloadLink"
-         href="https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup.msi">
-        ⬇ تحميل أحدث إصدار
+         href="https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup.exe">
+        ⬇ تحميل المثبّت (EXE)
       </a>
+      <div class="meta">
+        أو نزّل <a class="alt-link"
+                  href="https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup.msi">ملف MSI مباشرة</a>
+        (ويندوز 10/11، بدون مثبّت EXE).
+      </div>
 
       <div class="meta">
         رقم الإصدار: <strong id="versionText">1.2.0</strong>
-        &nbsp;•&nbsp; الحجم: <strong>53.1 ميجابايت</strong>
+        &nbsp;•&nbsp; الحجم: <strong id="sizeText">56.2 ميجابايت</strong>
         &nbsp;•&nbsp;
-        <span class="hash-row">SHA-256: <code id="hash">900428b3…dec8f1</code>
+        <span class="hash-row">SHA-256: <code id="hash">1e23e12a…133775</code>
           <button class="copy-btn" id="copyHash" type="button" title="نسخ البصمة الكاملة">📋 نسخ</button>
         </span>
       </div>
@@ -328,13 +334,13 @@
     <section class="legacy">
       <h2>أجهزة ويندوز 7 و8.1 — 32 و64 بت</h2>
       <p>
-        نسخة خفيفة (2.5 ميجابايت) من نفس البرنامج تعمل من <strong>ويندوز 7 SP1</strong> حتى ويندوز 11.
-        تحتاج <strong>.NET Framework 4.8</strong>: مدمج في ويندوز 10 الحديث وويندوز 11، ويُثبَّت مرة واحدة
-        على ويندوز 7/8.1 (مع تحديث SHA-2 <span dir="ltr">KB4474419</span> على ويندوز 7).
+        المثبّت أعلاه يعمل على ويندوز 7 و8.1 تلقائياً. وإن فضّلت ملف MSI صغيراً (2.5 ميجابايت)
+        بدل المثبّت، فهو هنا — ويحتاج <strong>.NET Framework 4.8</strong> (مدمج في ويندوز 10 الحديث
+        و11، ويُثبَّت مرة واحدة على ويندوز 7/8.1 مع تحديث SHA-2 <span dir="ltr">KB4474419</span>).
       </p>
       <a class="download" id="downloadWin7"
          href="https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup-Win7.msi">
-        ⬇ تحميل نسخة ويندوز 7
+        ⬇ تحميل MSI لويندوز 7 (اختياري)
       </a>
       <div class="meta">
         الحجم: <strong>2.5 ميجابايت</strong>
@@ -411,7 +417,7 @@
             <div class="shield">🛡️</div>
             <div>
               <h4>Windows protected your PC</h4>
-              <p><strong>App:</strong> Meadows-VideoGameCenter-Setup.msi<br>
+              <p><strong>App:</strong> Meadows-VideoGameCenter-Setup.exe<br>
                  <strong>Publisher:</strong> Unknown publisher</p>
             </div>
           </div>
@@ -439,26 +445,26 @@
       <details>
         <summary>إزاي أفك حظر الملف (Unblock) من خصائص ويندوز؟</summary>
         <ol>
-          <li>كليك يمين على ملف <strong>MSI</strong> ثم <strong>Properties</strong>.</li>
+          <li>كليك يمين على ملف التثبيت ثم <strong>Properties</strong>.</li>
           <li>في تبويب <strong>General</strong>، انزل لآخر الصفحة.</li>
           <li>لو لقيت خيار <strong>Unblock</strong> أو رسالة «This file came from another computer…»، فعّل الاختيار ثم <strong>Apply</strong> ثم <strong>OK</strong>.</li>
         </ol>
         <p>أو من PowerShell داخل مجلد التنزيل:</p>
-        <pre><code>Unblock-File .\Meadows-VideoGameCenter-Setup.msi</code></pre>
+        <pre><code>Unblock-File .\Meadows-VideoGameCenter-Setup.exe</code></pre>
       </details>
 
       <details>
         <summary>إزاي أتحقق من بصمة SHA-256 قبل التثبيت؟</summary>
         <p>افتح <strong>PowerShell</strong> في مجلد التنزيل ونفّذ:</p>
-        <pre><code>Get-FileHash .\Meadows-VideoGameCenter-Setup.msi -Algorithm SHA256</code></pre>
-        <p>قارن الناتج بالبصمة الظاهرة أعلى الصفحة (أو في ملف <span dir="ltr">latest.json</span>). لو الناتج مختلف، <strong>لا تشغّل الملف</strong> واحذفه واطلبه من الرابط الرسمي من جديد.</p>
+        <pre><code>Get-FileHash .\Meadows-VideoGameCenter-Setup.exe -Algorithm SHA256</code></pre>
+        <p>قارن الناتج بالبصمة الظاهرة أعلى الصفحة (أو في ملف <span dir="ltr">latest-exe.json</span>). لو الناتج مختلف، <strong>لا تشغّل الملف</strong> واحذفه واطلبه من الرابط الرسمي من جديد.</p>
         <p>بديل من Command Prompt:</p>
-        <pre><code>certutil -hashfile Meadows-VideoGameCenter-Setup.msi SHA256</code></pre>
+        <pre><code>certutil -hashfile Meadows-VideoGameCenter-Setup.exe SHA256</code></pre>
       </details>
 
       <details>
         <summary>لو اسم الملف اتغير بعد التحميل، أعمل إيه؟</summary>
-        <p>بعض المتصفحات تضيف <span dir="ltr">(1)</span> أو تاريخاً للاسم. الأوامر فوق تفترض الاسم الأصلي؛ عدّل الاسم في الأمر أو أعد تسمية الملف إلى <span dir="ltr">Meadows-VideoGameCenter-Setup.msi</span> قبل التحقق.</p>
+        <p>بعض المتصفحات تضيف <span dir="ltr">(1)</span> أو تاريخاً للاسم. الأوامر فوق تفترض الاسم الأصلي؛ عدّل الاسم في الأمر أو أعد تسمية الملف إلى <span dir="ltr">Meadows-VideoGameCenter-Setup.exe</span> قبل التحقق.</p>
       </details>
 
       <details>
@@ -525,7 +531,7 @@
     }
 
     // يجلب بيانات أحدث إصدار من ملف التحديث نفسه الذي يستخدمه البرنامج
-    fetch('latest.json', { cache: 'no-store' })
+    fetch('latest-exe.json', { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) {
         if (!data) return;
@@ -534,6 +540,7 @@
           document.getElementById('versionText').textContent = data.version;
         }
         if (data.notes) document.getElementById('notes').textContent = data.notes;
+        if (data.size) document.getElementById('sizeText').textContent = (data.size / 1048576).toFixed(1) + ' ميجابايت';
         if (data.sha256) {
           fullHash = data.sha256;
           document.getElementById('hash').textContent = fullHash.slice(0, 8) + '…' + fullHash.slice(-7);

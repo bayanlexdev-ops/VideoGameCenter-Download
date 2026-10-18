@@ -1,0 +1,8 @@
+{
+  "version": "1.2.0",
+  "url": "https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup.exe",
+  "sha256": "1E23E12A1F3F7B66335682DD5B363EA7735DC79CE931D1E570CCEA59CA133775",
+  "size": 58957488,
+  "mandatory": false,
+  "notes": "مثبّت واحد لكل إصدارات ويندوز: على ويندوز 10/11 يثبّت النسخة الحديثة المستقلة، وعلى ويندوز 7 SP1 و8.1 يثبّت نسخة .NET Framework 4.8 تلقائياً."
+}
