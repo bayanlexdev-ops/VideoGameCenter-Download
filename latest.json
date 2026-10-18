@@ -1,7 +1,7 @@
 {
-  "version": "1.2.0",
+  "version": "1.2.1",
   "url": "https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup.msi",
-  "sha256": "900428B306FC7064EEEC0424BB6C370980D124CAD3AE2DFC479F75D70DDEC8F1",
+  "sha256": "F6FAB7D60EB83099A8A6F539A617CAE471A5EDB14FE14B7DDDB68A01867AE69C",
   "mandatory": false,
-  "notes": "الإصدار 1.2.0: معالج إعداد عند أول تشغيل (اسم مركزك، أجهزتك وأسعار الساعة، المنتجات، وكلمة مرور المدير) بدل البيانات الافتراضية، وزر «التحقق من سلامة النسخة والحزمة» يفحص بصمة الملف ويشرح النتيجة بلغة بسيطة."
+  "notes": "الإصدار 1.2.1: إصلاح مثبّت EXE حتى يرقّي النسخة المثبّتة، مع زر «تقرير الدعم» ومسح السجلات القديمة من الإعدادات."
 }
