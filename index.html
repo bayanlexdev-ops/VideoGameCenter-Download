@@ -127,6 +127,78 @@
     }
     .step p { margin: 0; font-size: 14px; }
     .step span.hint { color: var(--muted); font-size: 12.5px; display: block; }
+    .hash-row { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: center; }
+    .copy-btn {
+      background: #223446; color: #cfe0ee;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 3px 9px;
+      font-family: inherit;
+      font-size: 11.5px;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .copy-btn:hover { border-color: var(--gold-2); color: var(--gold); }
+    .copy-btn.copied { background: var(--green); border-color: var(--green); color: #fff; }
+    .smartscreen { margin-top: 28px; }
+    .smartscreen h2 { font-size: 20px; margin: 0 0 4px; }
+    .smartscreen > p { color: var(--muted); font-size: 13.5px; margin: 0 0 14px; }
+    .mock-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .mock {
+      margin: 0;
+      background: #f3f3f3;
+      color: #1b1b1b;
+      border: 1px solid #d6d6d6;
+      border-radius: 12px;
+      overflow: hidden;
+      direction: ltr;
+      text-align: left;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      box-shadow: 0 16px 40px rgba(0,0,0,.28);
+    }
+    .mock .bar {
+      background: #e9e9e9; color: #4a4a4a;
+      padding: 7px 12px; font-size: 12px;
+      border-bottom: 1px solid #dcdcdc;
+    }
+    .mock .body { display: flex; gap: 12px; padding: 16px; }
+    .mock .shield { font-size: 30px; line-height: 1; }
+    .mock h4 { margin: 0 0 6px; font-size: 15px; color: #1b1b1b; }
+    .mock p { margin: 0; color: #444; font-size: 12.5px; line-height: 1.65; }
+    .mock .more {
+      display: inline-block; margin-top: 9px;
+      color: #0067c0; font-size: 12.5px; font-weight: 600;
+      border-bottom: 1px solid #0067c0; padding: 0 2px;
+    }
+    .mock .more.highlight {
+      background: #fff2a6; border-radius: 3px;
+      outline: 2px solid #f1c40f; outline-offset: 2px;
+    }
+    .mock .actions {
+      display: flex; justify-content: flex-end; gap: 8px;
+      padding: 10px 16px 12px; border-top: 1px solid #e3e3e3;
+    }
+    .mock .btn {
+      background: #e1e1e1; color: #111;
+      border-radius: 4px; padding: 5px 14px;
+      font-size: 12px; font-weight: 600;
+    }
+    .mock .btn.primary { background: #0067c0; color: #fff; }
+    .mock .btn.primary.highlight {
+      outline: 2px solid #f1c40f; outline-offset: 2px;
+      box-shadow: 0 0 0 5px rgba(241,196,15,.28);
+    }
+    .mock figcaption {
+      background: #16222e; color: #cfdae4;
+      padding: 9px 12px; font-size: 12.5px; text-align: right;
+      border-top: 1px solid #27384a;
+    }
+    .ss-note {
+      margin-top: 12px; padding: 10px 14px;
+      background: rgba(241,196,15,.07);
+      border: 1px dashed rgba(241,196,15,.35);
+      border-radius: 10px; color: #e6d9a8; font-size: 12.5px;
+    }
     .support {
       margin-top: 26px;
       display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between;
@@ -182,7 +254,10 @@
       <div class="meta">
         رقم الإصدار: <strong id="versionText">1.0.0</strong>
         &nbsp;•&nbsp; الحجم: <strong>53 ميجابايت</strong>
-        &nbsp;•&nbsp; SHA-256: <code id="hash">437ce6c2…893929e</code>
+        &nbsp;•&nbsp;
+        <span class="hash-row">SHA-256: <code id="hash">437ce6c2…893929e</code>
+          <button class="copy-btn" id="copyHash" type="button" title="نسخ البصمة الكاملة">📋 نسخ</button>
+        </span>
       </div>
 
       <div class="notes" id="notes">
@@ -213,7 +288,7 @@
       <div class="step">
         <div class="num">1</div>
         <p>اضغط زر التحميل وانتظر اكتمال ملف <strong>MSI</strong>.
-          <span class="hint">قد يظهر تحذير SmartScreen لأن الحزمة غير موقّعة بشهادة ناشر حتى الآن؛ اختر «مزيد من المعلومات» ثم «تشغيل على أي حال».</span>
+          <span class="hint">قد يظهر تحذير SmartScreen لأن الحزمة غير موقّعة بشهادة ناشر حتى الآن؛ اتبع الشرح المصوّر أسفل الصفحة (More info ثم Run anyway).</span>
         </p>
       </div>
       <div class="step">
@@ -228,6 +303,48 @@
           <span class="hint">الاحتياطي اليومي يعمل تلقائياً بعد أول تشغيل.</span>
         </p>
       </div>
+    </section>
+
+    <section class="smartscreen">
+      <h2>لو ظهر تحذير SmartScreen</h2>
+      <p>هذا طبيعي لأن الحزمة لم تُوقّع بشهادة ناشر بعد. اتبع الخطوتين التاليتين لإكمال التثبيت بأمان.</p>
+
+      <div class="mock-grid">
+        <figure class="mock">
+          <div class="bar">🛡️ Windows protected your PC</div>
+          <div class="body">
+            <div class="shield">🛡️</div>
+            <div>
+              <h4>Windows protected your PC</h4>
+              <p>Microsoft Defender SmartScreen prevented an unrecognized app from starting. Running this app might put your PC at risk.</p>
+              <span class="more highlight">More info</span>
+            </div>
+          </div>
+          <div class="actions"><span class="btn">Don't run</span></div>
+          <figcaption>١ — اضغط «More info» أسفل الرسالة</figcaption>
+        </figure>
+
+        <figure class="mock">
+          <div class="bar">🛡️ Windows protected your PC</div>
+          <div class="body">
+            <div class="shield">🛡️</div>
+            <div>
+              <h4>Windows protected your PC</h4>
+              <p><strong>App:</strong> Meadows-VideoGameCenter-Setup.msi<br>
+                 <strong>Publisher:</strong> Unknown publisher</p>
+            </div>
+          </div>
+          <div class="actions">
+            <span class="btn">Don't run</span>
+            <span class="btn primary highlight">Run anyway</span>
+          </div>
+          <figcaption>٢ — اضغط «Run anyway» لإكمال التثبيت</figcaption>
+        </figure>
+      </div>
+
+      <p class="ss-note">
+        لا تشغّل أي نسخة من مصدر غير رابطنا الرسمي. بعد التحميل يمكنك مطابقة بصمة SHA-256 المعروضة أعلى الصفحة قبل التثبيت.
+      </p>
     </section>
 
     <section class="support">
@@ -245,6 +362,38 @@
   </div>
 
   <script>
+    var fullHash = '437CE6C2BFEE62833D1AC4CC70DB4F59D02DED35A9DD477299F62224C893929E';
+    var copyButton = document.getElementById('copyHash');
+
+    function showCopied() {
+      copyButton.textContent = '✓ تم النسخ';
+      copyButton.classList.add('copied');
+      setTimeout(function () {
+        copyButton.textContent = '📋 نسخ';
+        copyButton.classList.remove('copied');
+      }, 1800);
+    }
+
+    copyButton.addEventListener('click', function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fullHash).then(showCopied).catch(copyFallback);
+      } else {
+        copyFallback();
+      }
+    });
+
+    function copyFallback() {
+      var area = document.createElement('textarea');
+      area.value = fullHash;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      try { document.execCommand('copy'); showCopied(); } catch (e) { /* المتصفح منع النسخ */ }
+      document.body.removeChild(area);
+    }
+
     // يجلب بيانات أحدث إصدار من ملف التحديث نفسه الذي يستخدمه البرنامج
     fetch('latest.json', { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.json() : null; })
@@ -256,9 +405,9 @@
         }
         if (data.notes) document.getElementById('notes').textContent = data.notes;
         if (data.sha256) {
-          var h = data.sha256;
-          document.getElementById('hash').textContent = h.slice(0, 8) + '…' + h.slice(-7);
-          document.getElementById('hash').title = h;
+          fullHash = data.sha256;
+          document.getElementById('hash').textContent = fullHash.slice(0, 8) + '…' + fullHash.slice(-7);
+          document.getElementById('hash').title = fullHash;
         }
         if (data.url) document.getElementById('downloadLink').href = data.url;
       })
