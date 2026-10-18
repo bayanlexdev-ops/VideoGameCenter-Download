@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>خطوات تثبيت Meadows — دليل سريع</title>
+  <meta name="description" content="خطوات تثبيت برنامج Meadows خطوة بخطوة، وتجاوز تحذير SmartScreen بأمان.">
+  <style>
+    :root {
+      --bg: #0d151d;
+      --panel: #16222e;
+      --line: #27384a;
+      --gold: #f1c40f;
+      --text: #eef3f7;
+      --muted: #93a4b3;
+      --green: #27ae60;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", "Tahoma", Arial, sans-serif;
+      background:
+        radial-gradient(800px 380px at 85% -10%, rgba(241, 196, 15, .12), transparent 60%),
+        radial-gradient(700px 360px at 10% 0%, rgba(52, 152, 219, .12), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.9;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 24px 18px 48px; }
+    header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+    header img {
+      width: 54px; height: 54px; object-fit: cover;
+      border-radius: 12px; border: 1px solid rgba(241,196,15,.45);
+    }
+    header h1 { margin: 0; font-size: 20px; }
+    header p { margin: 0; color: var(--muted); font-size: 13px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin: 22px 0 4px;
+      background: rgba(241,196,15,.12);
+      border: 1px solid rgba(241,196,15,.35);
+      color: #f3dc7a;
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 13px;
+    }
+    h2.title { margin: 6px 0 18px; font-size: 27px; line-height: 1.4; }
+    .step {
+      display: flex; gap: 14px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+    .num {
+      flex: 0 0 38px; width: 38px; height: 38px;
+      display: grid; place-items: center;
+      border-radius: 50%;
+      background: var(--gold); color: #221c00;
+      font-weight: 800; font-size: 17px;
+    }
+    .step h3 { margin: 0 0 6px; font-size: 17px; }
+    .step p { margin: 0; color: #cbd6e0; font-size: 14.5px; }
+    .step p + p { margin-top: 6px; }
+    .step > div:last-child { min-width: 0; }
+    .muted { color: var(--muted); font-size: 13px; }
+    .hint { display: block; margin-top: 8px; color: var(--muted); font-size: 13px; }
+    .mock {
+      margin: 12px 0 0;
+      border: 1px solid #3a4c5f;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0b131a;
+    }
+    .mock .bar {
+      background: #223446; color: #d8e4ee;
+      padding: 8px 12px; font-size: 12.5px;
+      display: flex; gap: 8px; align-items: center;
+    }
+    .mock .body {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px; font-size: 13px; color: #b9c8d5;
+    }
+    .mock .shield { font-size: 26px; }
+    .mock .body strong { color: #fff; display: block; margin-bottom: 4px; }
+    .mock .actions { display: flex; gap: 10px; justify-content: flex-start; padding: 0 14px 14px; }
+    .mock .btn {
+      border: 1px solid #3a4c5f; border-radius: 8px;
+      padding: 6px 14px; font-size: 12.5px;
+      background: #1b2a38; color: #d8e4ee;
+    }
+    .mock .btn.primary { background: var(--gold); color: #221c00; border-color: var(--gold); font-weight: 700; }
+    .mock .hl { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+    .note {
+      margin-top: 12px; border-radius: 12px; padding: 12px 14px; font-size: 13.5px;
+      background: rgba(39,174,96,.10); border: 1px solid rgba(39,174,96,.35); color: #c9efd6;
+    }
+    .note.warn { background: rgba(231,76,60,.10); border-color: rgba(231,76,60,.35); color: #f2cfcb; }
+    .note.info { background: rgba(52,152,219,.10); border-color: rgba(52,152,219,.35); color: #cfe4f7; }
+    .btn-main {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      margin-top: 8px; padding: 14px 28px; border-radius: 14px;
+      background: linear-gradient(180deg, var(--green), #1f8b4c);
+      color: #fff !important; text-decoration: none; font-weight: 800; font-size: 16px;
+      box-shadow: 0 12px 30px rgba(39,174,96,.28);
+    }
+    .btn-main:hover { transform: translateY(-1px); }
+    code {
+      direction: ltr; unicode-bidi: embed;
+      background: #0b131a; border: 1px solid var(--line);
+      padding: 2px 7px; border-radius: 6px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 12.5px; color: #cfe0ee;
+    }
+    pre {
+      direction: ltr; text-align: left;
+      background: #0b131a; border: 1px solid var(--line);
+      border-radius: 10px; padding: 12px; overflow-x: auto;
+      max-width: 100%; white-space: pre;
+      font-size: 12.5px; color: #cfe0ee;
+    }
+    ul { margin: 8px 0 0; padding-inline-start: 20px; }
+    li { margin-bottom: 6px; font-size: 14px; color: #cbd6e0; }
+    .support {
+      margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px;
+      align-items: center; justify-content: space-between;
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 16px; padding: 16px 18px; font-size: 14px;
+    }
+    .support a { color: var(--gold); text-decoration: none; font-weight: 700; }
+    footer { text-align: center; color: var(--muted); font-size: 12.5px; margin-top: 26px; }
+    footer a { color: #9fc2e0; }
+
+    @media print {
+      body { background: #fff; color: #111; }
+      header, .step, .support, .mock { background: #fff; border-color: #bbb; }
+      .step p, li { color: #222; }
+      .muted, .hint, footer { color: #555; }
+      h2.title { color: #111; }
+      .badge { background: #fff; border-color: #999; color: #333; }
+      .btn-main { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="branding.jpg" alt="شعار Meadows">
+      <div>
+        <h1>Meadows — PlayStation &amp; Billiards</h1>
+        <p>دليل التثبيت السريع</p>
+      </div>
+    </header>
+
+    <div class="badge">⏱️ دقيقتان فقط • ويندوز 7 حتى 11</div>
+    <h2 class="title">ثبّت البرنامج في ٤ خطوات</h2>
+
+    <section class="step">
+      <div class="num">١</div>
+      <div>
+        <h3>نزّل ملف التثبيت</h3>
+        <p>من صفحة التحميل الرسمية اضغط <strong>«تحميل المثبّت (EXE)»</strong>، وانتظر انتهاء ملف
+          <code>Meadows-VideoGameCenter-Setup.exe</code> (حوالي ٥٦ ميجابايت).</p>
+        <p class="hint">لا تغلق المتصفح قبل أن يكتمل التحميل. لا تحمّل الملف من أي رابط آخر.</p>
+        <a class="btn-main" href="https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup.exe">
+          ⬇ تحميل المثبّت (EXE)
+        </a>
+      </div>
+    </section>
+
+    <section class="step">
+      <div class="num">٢</div>
+      <div>
+        <h3>لو ظهر تحذير «Windows protected your PC»</h3>
+        <p>هذا التحذير طبيعي لأن الملف غير موقّع بشهادة ناشر حتى الآن، وليس لأنه فيروس.
+          اضغط <strong>More info</strong> ثم <strong>Run anyway</strong>.</p>
+
+        <div class="mock">
+          <div class="bar">🛡️ Windows protected your PC</div>
+          <div class="body">
+            <div class="shield">🛡️</div>
+            <div>
+              <strong>Windows protected your PC</strong>
+              Microsoft Defender SmartScreen prevented an unrecognized app from starting.
+              <span class="hl" style="display:inline-block;margin-top:6px;padding:2px 8px;">More info</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mock">
+          <div class="bar">🛡️ Windows protected your PC</div>
+          <div class="body">
+            <div class="shield">🛡️</div>
+            <div>
+              <strong>App: Meadows-VideoGameCenter-Setup.exe</strong>
+              Publisher: Unknown publisher
+            </div>
+          </div>
+          <div class="actions">
+            <span class="btn">Don't run</span>
+            <span class="btn primary">Run anyway</span>
+          </div>
+        </div>
+
+        <div class="note warn">
+          لو ظهرت الرسالة وملفك من مصدر غير رسمي: <strong>احذفه ولا تشغّله</strong>.
+        </div>
+      </div>
+    </section>
+
+    <section class="step">
+      <div class="num">٣</div>
+      <div>
+        <h3>شغّل المثبّت</h3>
+        <p>انقر الملف مرتين، ثم اضغط <strong>التالي / Next</strong> حتى تظهر رسالة الانتهاء.
+          التثبيت <strong>لا يحتاج صلاحيات مدير</strong> ويستغرق أقل من دقيقة.</p>
+        <p class="hint">على ويندوز 7 أو 8.1 سيطلب البرنامج تثبيت .NET Framework 4.8 مرة واحدة إن لم يكن موجوداً.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <div class="num">٤</div>
+      <div>
+        <h3>افتح البرنامج وابدأ</h3>
+        <p>من قائمة <strong>ابدأ ← Meadows ← Meadows — Video Game Center</strong>.</p>
+        <p>أول تشغيل يعرض <strong>معالج الإعداد</strong>: اسم مركزك، أجهزتك وأسعار الساعة، منتجاتك، وكلمة مرور المدير.</p>
+        <p class="hint">بعد ٧ أيام تشغيل تجريبية يظهر طلب رقم الترخيص لهذا الجهاز.</p>
+        <div class="note info">
+          بياناتك في <code>%APPDATA%\VideoGameCenter</code> — التحديث أو إلغاء التثبيت لا يمسحها.
+        </div>
+      </div>
+    </section>
+
+    <section class="step">
+      <div class="num" style="background:#2c4356;color:#fff;">✓</div>
+      <div>
+        <h3>اختياري: تأكّد أن الملف سليم</h3>
+        <p>بعد التحميل، افتح PowerShell في مجلد التنزيل ونفّذ:</p>
+        <pre>Get-FileHash .\Meadows-VideoGameCenter-Setup.exe -Algorithm SHA256</pre>
+        <p class="muted">قارن الناتج بالبصمة الظاهرة على صفحة التحميل. اختلاف البصمة = لا تشغّل الملف.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <div class="num" style="background:#2c4356;color:#fff;">؟</div>
+      <div>
+        <h3>لو ظهرت مشكلة</h3>
+        <ul>
+          <li><strong>لا أرى زر Run anyway:</strong> اضغط <strong>More info</strong> أولاً ثم يظهر الزر.</li>
+          <li><strong>رسالة عن .NET Framework على ويندوز 7:</strong> ثبّت <strong>.NET Framework 4.8</strong> من موقع مايكروسوفت
+            (بعد تحديث <code>KB4474419</code>)، ثم أعد تشغيل الجهاز وأعد التثبيت.</li>
+          <li><strong>البرنامج لا يفتح:</strong> أعد تشغيل الجهاز، ثم شغّله من قائمة ابدأ وليس من داخل ملفات التحميل.</li>
+          <li><strong>الملف توقّف أثناء التحميل:</strong> احذفه ونزّله من جديد؛ البصمة ستؤكد سلامته.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="support">
+      <div>تحتاج مساعدة في التثبيت أو الترخيص؟</div>
+      <a href="https://wa.me/201100471272">واتساب 01100471272</a>
+    </div>
+
+    <footer>
+      <a href="./">العودة إلى صفحة التحميل</a> • تحميل البرنامج الرسمي فقط من هنا
+    </footer>
+  </div>
+</body>
+</html>
