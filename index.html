@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تحميل Meadows — Video Game Center</title>
+  <meta name="description" content="تحميل أحدث إصدار من نظام Meadows لإدارة البلايستيشن والبلياردو والكاشير.">
+  <style>
+    :root {
+      --bg: #0d151d;
+      --panel: #16222e;
+      --panel-2: #1b2a38;
+      --line: #27384a;
+      --gold: #f1c40f;
+      --gold-2: #c9a227;
+      --text: #eef3f7;
+      --muted: #93a4b3;
+      --green: #27ae60;
+      --green-2: #1f8b4c;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", "Tahoma", Arial, sans-serif;
+      background:
+        radial-gradient(900px 420px at 85% -10%, rgba(241, 196, 15, .12), transparent 60%),
+        radial-gradient(700px 380px at 10% 0%, rgba(52, 152, 219, .12), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 24px 20px 48px; }
+    header {
+      display: flex; align-items: center; gap: 16px;
+      padding: 14px 18px;
+      background: linear-gradient(180deg, rgba(22,34,46,.95), rgba(22,34,46,.75));
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+    }
+    header img {
+      width: 64px; height: 64px; object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(241,196,15,.45);
+      box-shadow: 0 0 24px rgba(241,196,15,.12);
+    }
+    header .brand h1 { margin: 0; font-size: 22px; letter-spacing: .2px; }
+    header .brand p { margin: 0; color: var(--muted); font-size: 13px; }
+    .hero {
+      margin-top: 26px;
+      text-align: center;
+      padding: 42px 22px 36px;
+      background: linear-gradient(180deg, rgba(22,34,46,.9), rgba(13,21,29,.65));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(241,196,15,.12);
+      color: var(--gold);
+      border: 1px solid rgba(241,196,15,.35);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero h2 { font-size: 34px; margin: 16px 0 8px; }
+    .hero p.lead { color: var(--muted); max-width: 640px; margin: 0 auto 24px; font-size: 15px; }
+    .download {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-width: 300px;
+      padding: 16px 30px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, var(--green), var(--green-2));
+      color: #fff !important;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 12px 30px rgba(39,174,96,.32);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .download:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(39,174,96,.42); }
+    .meta { margin-top: 14px; color: var(--muted); font-size: 12.5px; }
+    .meta code {
+      direction: ltr; unicode-bidi: embed;
+      background: #0b131a; border: 1px solid var(--line);
+      padding: 2px 7px; border-radius: 6px; color: #b9c8d5; font-size: 11.5px;
+    }
+    .notes {
+      margin: 24px auto 0; max-width: 720px;
+      background: rgba(241,196,15,.06);
+      border: 1px solid rgba(241,196,15,.18);
+      border-radius: 12px; padding: 12px 16px;
+      color: #e6d9a8; font-size: 14px;
+      text-align: right;
+    }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+    }
+    .card .icon { font-size: 22px; }
+    .card h3 { margin: 8px 0 4px; font-size: 16px; }
+    .card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .steps { margin-top: 26px; }
+    .steps h2 { font-size: 20px; margin: 0 0 12px; }
+    .step {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+    .step .num {
+      flex: 0 0 30px; width: 30px; height: 30px;
+      display: grid; place-items: center;
+      border-radius: 50%;
+      background: rgba(241,196,15,.14);
+      border: 1px solid rgba(241,196,15,.35);
+      color: var(--gold);
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .step p { margin: 0; font-size: 14px; }
+    .step span.hint { color: var(--muted); font-size: 12.5px; display: block; }
+    .support {
+      margin-top: 26px;
+      display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between;
+      background: linear-gradient(180deg, #1d2c3a, #16222e);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 20px;
+    }
+    .support h3 { margin: 0 0 4px; font-size: 17px; }
+    .support p { margin: 0; color: var(--muted); font-size: 13px; }
+    .support a {
+      color: #fff; text-decoration: none; font-weight: 700;
+      background: #1f6f4a;
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 11px 20px; border-radius: 12px;
+      white-space: nowrap;
+    }
+    .support a.secondary { background: transparent; border-color: var(--line); color: var(--muted); font-weight: 600; }
+    footer { text-align: center; color: #6f8090; font-size: 12px; margin-top: 28px; }
+    footer strong { color: #a9b8c6; }
+    @media (max-width: 760px) {
+      .hero h2 { font-size: 26px; }
+      .grid { grid-template-columns: 1fr; }
+      .download { width: 100%; min-width: 0; }
+      .support { flex-direction: column; align-items: stretch; text-align: center; }
+      .support a { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="branding.jpg" alt="شعار Meadows">
+      <div class="brand">
+        <h1>Meadows — PlayStation &amp; Billiards</h1>
+        <p>نظام تشغيل الأجهزة والكاشير وإدارة الزبائن والنقاط</p>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="badge">✅ أحدث إصدار <span id="version">1.0.0</span> — Windows 10/11 (64-bit)</div>
+      <h2>حمّل البرنامج وابدأ التشغيل</h2>
+      <p class="lead">
+        حزمة تثبيت كاملة تعمل بدون تثبيت .NET، وتحافظ على بياناتك في مجلد مستقل
+        لا يتأثر بالتحديث أو إلغاء التثبيت.
+      </p>
+
+      <a class="download" id="downloadLink"
+         href="https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup.msi">
+        ⬇ تحميل أحدث إصدار
+      </a>
+
+      <div class="meta">
+        رقم الإصدار: <strong id="versionText">1.0.0</strong>
+        &nbsp;•&nbsp; الحجم: <strong>53 ميجابايت</strong>
+        &nbsp;•&nbsp; SHA-256: <code id="hash">437ce6c2…893929e</code>
+      </div>
+
+      <div class="notes" id="notes">
+        الإصدار الأول: نظام التشغيل والكاشير، نقاط الولاء، كشوف الحساب، الترخيص، والتحديث التلقائي.
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <div class="icon">🔑</div>
+        <h3>ترخيص لكل جهاز</h3>
+        <p>تجربة 7 أيام تشغيل كاملة، ثم يُطلب رقم الترخيص مرة واحدة لهذا الجهاز. الترخيص لا ينتقل بالنسخ إلى جهاز آخر.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🛡️</div>
+        <h3>تحديثات آمنة</h3>
+        <p>التحديث يُنزّل من HTTPS ويُتحقق من بصمته قبل التثبيت، وقاعدة بياناتك لا تُمَس.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💾</div>
+        <h3>بياناتك محفوظة</h3>
+        <p>قاعدة البيانات في <span dir="ltr">%APPDATA%\VideoGameCenter</span> خارج مجلد البرنامج، مع نسخة احتياطية يومية.</p>
+      </div>
+    </section>
+
+    <section class="steps">
+      <h2>خطوات التثبيت</h2>
+      <div class="step">
+        <div class="num">1</div>
+        <p>اضغط زر التحميل وانتظر اكتمال ملف <strong>MSI</strong>.
+          <span class="hint">قد يظهر تحذير SmartScreen لأن الحزمة غير موقّعة بشهادة ناشر حتى الآن؛ اختر «مزيد من المعلومات» ثم «تشغيل على أي حال».</span>
+        </p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <p>افتح الحزمة واتبع خطوات التثبيت.
+          <span class="hint">التثبيت لكل مستخدم ولا يحتاج صلاحيات مدير، ويُثبَّت في <span dir="ltr">%LOCALAPPDATA%\Programs\Meadows</span>.</span>
+        </p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <p>شغّل البرنامج من قائمة ابدأ، وأدخل رقم الترخيص عند انتهاء التجربة.
+          <span class="hint">الاحتياطي اليومي يعمل تلقائياً بعد أول تشغيل.</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="support">
+      <div>
+        <h3>تحتاج مساعدة أو رقم ترخيص؟</h3>
+        <p>تواصل عبر واتساب: <strong dir="ltr">01100471272</strong></p>
+      </div>
+      <a href="https://wa.me/201100471272" target="_blank" rel="noopener">💬 تواصل على واتساب</a>
+    </section>
+
+    <footer>
+      <strong>Meadows — Video Game Center</strong><br>
+      تصميم وبرمجة: هشام فاروق عبدالحميد — 01100471272
+    </footer>
+  </div>
+
+  <script>
+    // يجلب بيانات أحدث إصدار من ملف التحديث نفسه الذي يستخدمه البرنامج
+    fetch('latest.json', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data) return;
+        if (data.version) {
+          document.getElementById('version').textContent = data.version;
+          document.getElementById('versionText').textContent = data.version;
+        }
+        if (data.notes) document.getElementById('notes').textContent = data.notes;
+        if (data.sha256) {
+          var h = data.sha256;
+          document.getElementById('hash').textContent = h.slice(0, 8) + '…' + h.slice(-7);
+          document.getElementById('hash').title = h;
+        }
+        if (data.url) document.getElementById('downloadLink').href = data.url;
+      })
+      .catch(function () { /* تبقى القيم الافتراضية الظاهرة */ });
+  </script>
+</body>
+</html>
