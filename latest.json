@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "url": "https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup.msi",
-  "sha256": "437CE6C2BFEE62833D1AC4CC70DB4F59D02DED35A9DD477299F62224C893929E",
+  "sha256": "B8F5690A157919AA212EA29D168FE3DBD59FA7287E000A055E4F0760AE47FCC1",
   "mandatory": false,
-  "notes": "الإصدار 1.0.0: نظام تشغيل الأجهزة والكاشير، نقاط الولاء والعروض، كشوف حساب الزبائن، التقارير، الترخيص المرتبط بالجهاز، والتحديث التلقائي الآمن."
+  "notes": "الإصدار 1.0.0 (تحديث أمني): حماية تصدير CSV من حقن الصيغ، ورفض تحويلات التحديث من HTTPS إلى HTTP، مع تحسينات الاختبارات والتثبيت."
 }
