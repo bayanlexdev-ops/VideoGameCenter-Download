@@ -1,0 +1,7 @@
+{
+  "version": "1.2.0",
+  "url": "https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup-Win7.msi",
+  "sha256": "D6D3FA8050BE96B40FD87C8E43A8839FF155E213AE1E51FA49DE304816766D0F",
+  "mandatory": false,
+  "notes": "نسخة ويندوز 7/8.1 من الإصدار 1.2.0 — نفس البرنامج، تعمل من ويندوز 7 SP1 حتى ويندوز 11 على 32 و64 بت، وتحتاج .NET Framework 4.8."
+}

@@ -259,6 +259,26 @@
     .support a.secondary { background: transparent; border-color: var(--line); color: var(--muted); font-weight: 600; }
     footer { text-align: center; color: #6f8090; font-size: 12px; margin-top: 28px; }
     footer strong { color: #a9b8c6; }
+    .legacy {
+      margin-top: 18px;
+      padding: 22px 20px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(22,34,46,.9), rgba(13,21,29,.65));
+      border: 1px dashed rgba(147,164,179,.35);
+      border-radius: 18px;
+    }
+    .legacy h2 { margin: 0 0 8px; font-size: 19px; }
+    .legacy p { margin: 0 auto 14px; max-width: 760px; color: var(--muted); font-size: 14px; }
+    .legacy .download {
+      min-width: 280px;
+      padding: 13px 24px;
+      font-size: 16px;
+      background: linear-gradient(180deg, #3d5a73, #2c4356);
+      box-shadow: 0 12px 30px rgba(0,0,0,.28);
+    }
+    .legacy .download:hover { box-shadow: 0 16px 36px rgba(0,0,0,.4); }
+    .legacy .hint { color: #8496a6; font-size: 12.5px; margin: 12px auto 0; max-width: 720px; }
+
     @media (max-width: 760px) {
       .hero h2 { font-size: 26px; }
       .grid { grid-template-columns: 1fr; }
@@ -303,6 +323,27 @@
       <div class="notes" id="notes">
         الإصدار 1.2.0: معالج إعداد عند أول تشغيل (اسم مركزك، أجهزتك وأسعار الساعة، المنتجات، وكلمة مرور المدير) بدل البيانات الافتراضية، وزر «التحقق من سلامة النسخة والحزمة» يفحص بصمة الملف ويشرح النتيجة بلغة بسيطة.
       </div>
+    </section>
+
+    <section class="legacy">
+      <h2>أجهزة ويندوز 7 و8.1 — 32 و64 بت</h2>
+      <p>
+        نسخة خفيفة (2.5 ميجابايت) من نفس البرنامج تعمل من <strong>ويندوز 7 SP1</strong> حتى ويندوز 11.
+        تحتاج <strong>.NET Framework 4.8</strong>: مدمج في ويندوز 10 الحديث وويندوز 11، ويُثبَّت مرة واحدة
+        على ويندوز 7/8.1 (مع تحديث SHA-2 <span dir="ltr">KB4474419</span> على ويندوز 7).
+      </p>
+      <a class="download" id="downloadWin7"
+         href="https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup-Win7.msi">
+        ⬇ تحميل نسخة ويندوز 7
+      </a>
+      <div class="meta">
+        الحجم: <strong>2.5 ميجابايت</strong>
+        &nbsp;•&nbsp;
+        <span class="hash-row">SHA-256: <code id="hashWin7">…</code></span>
+      </div>
+      <p class="hint">
+        ويندوز 7 نفسه خارج الدعم الأمني من مايكروسوفت منذ 2020؛ النسخة تعمل عليه، لكن يُفضَّل ترقية النظام.
+      </p>
     </section>
 
     <section class="grid">
@@ -421,6 +462,11 @@
       </details>
 
       <details>
+        <summary>هل البرنامج يعمل على ويندوز 7 أو 8.1؟</summary>
+        <p>نعم. استخدم <strong>نسخة ويندوز 7</strong> (2.5 ميجابايت) في القسم أعلى الصفحة. تعمل من ويندوز 7 SP1 حتى ويندوز 11، على 32 و64 بت، وتحتاج <strong>.NET Framework 4.8</strong> مثبتاً. ويندوز 10 الحديث وويندوز 11 فيهما 4.8 مدمج؛ أما ويندوز 7 فيحتاج تحديث SHA-2 <span dir="ltr">KB4474419</span> ثم تثبيت 4.8 مرة واحدة وإعادة التشغيل.</p>
+      </details>
+
+      <details>
         <summary>هل التحديث أو إلغاء التثبيت يمسح بياناتي؟</summary>
         <p>لا. قاعدة البيانات والنسخ الاحتياطية في <span dir="ltr">%APPDATA%\VideoGameCenter</span> خارج مجلد التثبيت، ولا يحذفها المثبّت. يُنصح بأخذ نسخة احتياطية دورية من هذا المجلد.</p>
       </details>
@@ -494,6 +540,20 @@
           document.getElementById('hash').title = fullHash;
         }
         if (data.url) document.getElementById('downloadLink').href = data.url;
+      })
+      .catch(function () { /* تبقى القيم الافتراضية الظاهرة */ });
+
+    // نسخة ويندوز 7 لها ملف تحديث مستقل حتى لا تنزّل حزمة .NET 10
+    fetch('latest-win7.json', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data) return;
+        if (data.url) document.getElementById('downloadWin7').href = data.url;
+        if (data.sha256) {
+          var win7Hash = document.getElementById('hashWin7');
+          win7Hash.textContent = data.sha256.slice(0, 8) + '…' + data.sha256.slice(-7);
+          win7Hash.title = data.sha256;
+        }
       })
       .catch(function () { /* تبقى القيم الافتراضية الظاهرة */ });
   </script>
