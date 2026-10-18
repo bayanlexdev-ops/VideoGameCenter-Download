@@ -199,6 +199,46 @@
       border: 1px dashed rgba(241,196,15,.35);
       border-radius: 10px; color: #e6d9a8; font-size: 12.5px;
     }
+    .faq { margin-top: 28px; }
+    .faq h2 { font-size: 20px; margin: 0 0 12px; }
+    .faq details {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0 16px;
+      margin-bottom: 10px;
+    }
+    .faq summary {
+      cursor: pointer;
+      padding: 14px 0;
+      font-weight: 700;
+      font-size: 14px;
+      list-style: none;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '＋'; color: var(--gold); font-size: 18px; font-weight: 400; }
+    .faq details[open] summary::after { content: '−'; }
+    .faq details > *:not(summary) { color: var(--muted); font-size: 13.5px; margin: 0 0 14px; }
+    .faq p { margin: 0 0 10px; }
+    .faq ol { margin: 0 0 10px; padding-inline-start: 20px; }
+    .faq li { margin-bottom: 6px; }
+    .faq code {
+      direction: ltr; unicode-bidi: embed;
+      background: #0b131a; border: 1px solid var(--line);
+      padding: 2px 6px; border-radius: 5px;
+      color: #d7e3ee; font-size: 12px;
+    }
+    .faq pre {
+      background: #0b131a;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 12px 14px;
+      direction: ltr; text-align: left;
+      overflow-x: auto;
+      margin: 6px 0 10px;
+    }
+    .faq pre code { border: 0; background: transparent; padding: 0; font-size: 12.5px; }
     .support {
       margin-top: 26px;
       display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between;
@@ -345,6 +385,50 @@
       <p class="ss-note">
         لا تشغّل أي نسخة من مصدر غير رابطنا الرسمي. بعد التحميل يمكنك مطابقة بصمة SHA-256 المعروضة أعلى الصفحة قبل التثبيت.
       </p>
+    </section>
+
+    <section class="faq">
+      <h2>أسئلة شائعة</h2>
+
+      <details open>
+        <summary>ظهر «Windows protected your PC» — أعمل إيه؟</summary>
+        <p>اضغط <strong>More info</strong> في الرسالة، ثم <strong>Run anyway</strong>. هذا التحذير طبيعي لأن الحزمة غير موقّعة بشهادة ناشر، وليس دليلاً على وجود فيروس. راجع الشرح المصوّر أعلاه.</p>
+      </details>
+
+      <details>
+        <summary>إزاي أفك حظر الملف (Unblock) من خصائص ويندوز؟</summary>
+        <ol>
+          <li>كليك يمين على ملف <strong>MSI</strong> ثم <strong>Properties</strong>.</li>
+          <li>في تبويب <strong>General</strong>، انزل لآخر الصفحة.</li>
+          <li>لو لقيت خيار <strong>Unblock</strong> أو رسالة «This file came from another computer…»، فعّل الاختيار ثم <strong>Apply</strong> ثم <strong>OK</strong>.</li>
+        </ol>
+        <p>أو من PowerShell داخل مجلد التنزيل:</p>
+        <pre><code>Unblock-File .\Meadows-VideoGameCenter-Setup.msi</code></pre>
+      </details>
+
+      <details>
+        <summary>إزاي أتحقق من بصمة SHA-256 قبل التثبيت؟</summary>
+        <p>افتح <strong>PowerShell</strong> في مجلد التنزيل ونفّذ:</p>
+        <pre><code>Get-FileHash .\Meadows-VideoGameCenter-Setup.msi -Algorithm SHA256</code></pre>
+        <p>قارن الناتج بالبصمة الظاهرة أعلى الصفحة (أو في ملف <span dir="ltr">latest.json</span>). لو الناتج مختلف، <strong>لا تشغّل الملف</strong> واحذفه واطلبه من الرابط الرسمي من جديد.</p>
+        <p>بديل من Command Prompt:</p>
+        <pre><code>certutil -hashfile Meadows-VideoGameCenter-Setup.msi SHA256</code></pre>
+      </details>
+
+      <details>
+        <summary>لو اسم الملف اتغير بعد التحميل، أعمل إيه؟</summary>
+        <p>بعض المتصفحات تضيف <span dir="ltr">(1)</span> أو تاريخاً للاسم. الأوامر فوق تفترض الاسم الأصلي؛ عدّل الاسم في الأمر أو أعد تسمية الملف إلى <span dir="ltr">Meadows-VideoGameCenter-Setup.msi</span> قبل التحقق.</p>
+      </details>
+
+      <details>
+        <summary>هل التحديث أو إلغاء التثبيت يمسح بياناتي؟</summary>
+        <p>لا. قاعدة البيانات والنسخ الاحتياطية في <span dir="ltr">%APPDATA%\VideoGameCenter</span> خارج مجلد التثبيت، ولا يحذفها المثبّت. يُنصح بأخذ نسخة احتياطية دورية من هذا المجلد.</p>
+      </details>
+
+      <details>
+        <summary>ليه البرنامج بيطلب رقم ترخيص؟</summary>
+        <p>التجربة 7 أيام تشغيل كاملة، وبعدها يلزم ترخيص صحيح لهذا الجهاز. الترخيص مرتبط ببصمة الجهاز ومجلد التثبيت، ولا ينتقل بالنسخ إلى جهاز آخر. للترخيص تواصل واتساب <strong dir="ltr">01100471272</strong>.</p>
+      </details>
     </section>
 
     <section class="support">
