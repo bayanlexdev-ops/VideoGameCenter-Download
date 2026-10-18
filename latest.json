@@ -1,7 +1,7 @@
 {
-  "version": "1.0.1",
+  "version": "1.1.0",
   "url": "https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup.msi",
-  "sha256": "82574BC205F8554A287FD5660889BD2F9D0A24264EC58D3E5BE453148DEE8A8B",
+  "sha256": "68607DC64E2518FE6BA578401CFF37D85C33B5724AC068DA8D1223A5ABEB9353",
   "mandatory": false,
-  "notes": "الإصدار 1.0.1: حماية تصدير CSV من حقن الصيغ، ورفض تحويلات التحديث من HTTPS إلى HTTP، مع تحسينات الاختبارات والتثبيت."
+  "notes": "الإصدار 1.1.0: تشفير أسماء الزبائن وأرقام هواتفهم داخل قاعدة البيانات بحساب ويندوز (DPAPI)، مع ترحيل تلقائي للبيانات القديمة وتحسينات بوابة الفحص."
 }
