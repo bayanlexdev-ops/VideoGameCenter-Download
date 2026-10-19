@@ -1,8 +1,8 @@
 {
-  "version": "1.2.1",
+  "version": "1.2.2",
   "url": "https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup.exe",
-  "sha256": "EA290CFF0B8822F586546024A57D2DC6C5D2712D5E5C9304E3DEAC085B1DF3B4",
-  "size": 58979028,
+  "sha256": "E3CC71C78D069949CD2521ABC09F75911427045E190F4FA6390343B274277A33",
+  "size": 56403225,
   "mandatory": false,
-  "notes": "الإصدار 1.2.1: مثبّت EXE جديد يرقّي نسخة 1.2.0 المثبّتة بدل تجاهلها، فلا حاجة لإلغاء التثبيت قبل التشغيل."
+  "notes": "الإصدار 1.2.2: بحث فوري في شاشة الزبائن بالكود أو الاسم أو الهاتف، وإزالة نسخة ويندوز 7 ليبقى مثبّت واحد أبسط. شغّل الملف الجديد فوق نسختك — لا تحتاج إلغاء تثبيت."
 }

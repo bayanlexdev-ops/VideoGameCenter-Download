@@ -1,7 +1,7 @@
 {
-  "version": "1.2.1",
+  "version": "1.2.2",
   "url": "https://github.com/bayanlexdev-ops/VideoGameCenter-Download/releases/latest/download/Meadows-VideoGameCenter-Setup.msi",
-  "sha256": "F6FAB7D60EB83099A8A6F539A617CAE471A5EDB14FE14B7DDDB68A01867AE69C",
+  "sha256": "CFE2061FDD2CE747C80F287AD31D71CC686B38999D42BA698E1B3EC4D9161C62",
   "mandatory": false,
-  "notes": "الإصدار 1.2.1: إصلاح مثبّت EXE حتى يرقّي النسخة المثبّتة، مع زر «تقرير الدعم» ومسح السجلات القديمة من الإعدادات."
+  "notes": "الإصدار 1.2.2: بحث فوري في شاشة الزبائن بالكود أو الاسم أو الهاتف، ومثبّت واحد بلا مسار ويندوز 7."
 }
